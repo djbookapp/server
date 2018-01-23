@@ -22,8 +22,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 //set up cors
 app.use(cors());
 
-app.get('/api/db', (req,res) => {
-  res.send('Yeah buddy.');
+//app.get('/api/db', (req,res) => {
+//  res.send('Yeah buddy.');
+//});
+
+app.get('app/v1/books', (req,res) => {
+  client.query('SELECT book_id,title,author,imgUrl FROM books;')
+    .then(result => response.send(result.rows))
 });
 
 app.post('/api/db', (req,res) => {
