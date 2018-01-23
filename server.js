@@ -28,8 +28,8 @@ app.get('/api/db', (req,res) => {
 
 app.post('/api/db', (req,res) => {
   client.query(
-    'INSERT INTO books VALUES($1,$2,$3,$4,$5)',
-    [req.body.author, req.body.title, req.body.isbn, req.body.img-url, req.body.description],
+    'INSERT INTO books (author,title,isbn,imgUrl,description) VALUES($1,$2,$3,$4,$5)',
+    [req.body.author, req.body.title, req.body.isbn, req.body.imgUrl, req.body.description],
     err => console.error(err)
   );
 });
