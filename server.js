@@ -9,8 +9,8 @@ const cors = require('cors');
 //Additional consts
 const app = express();
 const PORT = process.env.PORT || 3000;
-const conString = process.env.DATABASE_URL || database;
-const client = new pg.Client(consString);
+const conString = process.env.DATABASE_URL || 'database';
+const client = new pg.Client(conString);
 
 //connect to db
 client.connect();
