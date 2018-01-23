@@ -26,9 +26,9 @@ app.use(cors());
 //  res.send('Yeah buddy.');
 //});
 
-app.get('app/v1/books', (req,res) => {
+app.get('/api/v1/books', (req,res) => {
   client.query('SELECT book_id,title,author,imgUrl FROM books;')
-    .then(result => response.send(result.rows))
+    .then(result => res.send(result.rows))
 });
 
 app.post('/api/db', (req,res) => {
