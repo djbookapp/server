@@ -17,5 +17,5 @@ client.connect();
 
 //set up body-parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true});
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`);
+app.use(bodyParser.urlencoded({extended: true}));
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
