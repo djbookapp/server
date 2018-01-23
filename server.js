@@ -19,3 +19,7 @@ client.connect();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
+app.get('/api/db', (req,res) => {
+  res.send('Yeah buddy.');
+});
