@@ -18,8 +18,13 @@ client.connect();
 //set up body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
+//set up cors
+app.use(cors());
 
 app.get('/api/db', (req,res) => {
   res.send('Yeah buddy.');
 });
+
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
