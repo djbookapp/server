@@ -20,7 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //set up cors
+//
 app.use(cors());
+app.options('*', cors());
 
 //GETS
 app.get('/api/v1/books', (req,res) => {
