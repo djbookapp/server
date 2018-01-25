@@ -21,6 +21,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //set up cors
 app.use(cors());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 //GETS
 app.get('/api/v1/books', (req,res) => {
