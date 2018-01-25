@@ -5,13 +5,13 @@ const express = require('express');
 const pg = require('pg');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-app.use(cors());
 
 //Additional consts
 const app = express();
 const PORT = process.env.PORT;
 const conString = process.env.DATABASE_URL;
 const client = new pg.Client(conString);
+app.use(cors());
 
 //connect to db
 client.connect();
