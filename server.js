@@ -15,6 +15,7 @@ const client = new pg.Client(conString);
 //set up cors
 app.use(cors());
 app.use(function(req, res, next) {
+    req.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
