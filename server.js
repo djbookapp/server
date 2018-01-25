@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //set up cors
+//
 app.use(cors());
 app.options('*', cors());
 
