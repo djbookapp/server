@@ -50,7 +50,7 @@ app.post('/api/db', (req,res) => {
 });
 
 //PUTS
-app.options('/api/db/:id', (req,res) => {
+app.put('/api/db/:id', (req,res) => {
   console.log('HIT PUT ROUTE');
   client.query(
     'UPDATE books SET author=$1,title=$2,isbn=$3,imgUrl=$4,description=$5 WHERE book_id=$6;',
