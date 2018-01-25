@@ -52,7 +52,7 @@ app.post('/api/db', (req,res) => {
 //PUTS
 app.put('/api/db/:id', (req,res) => {
   client.query(
-    'UPDATE (author,title,isbn,imgUrl,description) VALUES($1,$2,$3,$4,$5) WHERE book_id=$6;',
+    'UPDATE books SET author=$1,title=$2,isbn=$3,imgUrl=$4,description=$5 WHERE book_id=$6;',
     [req.body.author, req.body.title, req.body.isbn, req.body.imgUrl, req.body.description, req.params.id],
     err => console.error(err)
   );
