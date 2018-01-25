@@ -56,6 +56,8 @@ app.put('/api/db/:id', (req,res) => {
     [req.body.author, req.body.title, req.body.isbn, req.body.imgUrl, req.body.description, req.params.id],
     err => console.error(err)
   );
+
+  console.log(req.body.author);
 });
 
 //DELETES
