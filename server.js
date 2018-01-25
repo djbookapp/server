@@ -63,7 +63,7 @@ app.put('/api/db/:id', (req,res) => {
 //DELETES
 app.delete('/api/db/:id', (req,res) => {
   client.query(
-    'DELETE * WHERE book_id=$1;',
+    'DELETE * FROM books WHERE book_id=$1;',
     [req.params.id],
     err => console.error(err)
   );
