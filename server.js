@@ -22,18 +22,23 @@ app.use(bodyParser.urlencoded({extended: true}));
 //set up cors
 app.use(cors());
 
-//app.get('/api/db', (req,res) => {
-//  res.send('Yeah buddy.');
-//});
-
+//GETS
 app.get('/api/v1/books', (req,res) => {
   client.query('SELECT book_id,title,author,imgUrl FROM books;')
     .then(result => res.send(result.rows))
 });
 
+app.get('/api/v1/books/:id', (req,res) => {
+  client.query(
+    'SELECT * FROM books WHERE book_id=$1;',
+    [req.params.id])
+    .then(result => res.send(result.rows))
+});
+
+//POSTS
 app.post('/api/db', (req,res) => {
   client.query(
-    'INSERT INTO books (author,title,isbn,imgUrl,description) VALUES($1,$2,$3,$4,$5)',
+    'INSERT INTO books (author,title,isbn,imgUrl,description) VALUES($1,$2,$3,$4,$5);',
     [req.body.author, req.body.title, req.body.isbn, req.body.imgUrl, req.body.description],
     err => console.error(err)
   );
