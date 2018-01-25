@@ -18,8 +18,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-});
-
+);
 
 //connect to db
 client.connect();
@@ -30,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //GETS
 app.get('/api/v1/books', (req,res) => {
-  client.query('SELECT book_id,title,author,imgUrl FROM books;')
+  client.query('SELECT * FROM books;')
     .then(result => res.send(result.rows))
 });
 
