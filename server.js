@@ -50,6 +50,10 @@ app.post('/api/db', (req,res) => {
 });
 
 //PUTS
+app.options('/api/db/:id', (req,res) => {
+  console.log('hit options route');
+});
+
 app.put('/api/db/:id', (req,res) => {
   console.log('HIT PUT ROUTE');
   client.query(
