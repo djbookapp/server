@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
 //app.options('*', cors());
 app.use(function(req, res, next) {
-    req.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "*");
  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -35,6 +35,7 @@ app.get('/api/v1/books', (req,res) => {
 });
 
 app.get('/api/v1/books/:id', (req,res) => {
+  res.header("Access-Control-Allow-Origin", "*");
   client.query(
     'SELECT * FROM books WHERE book_id=$1;',
     [req.params.id])
